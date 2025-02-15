@@ -4,7 +4,8 @@ import { Github } from "lucide-react";
 import "./index.css";
 import Link from "next/link";
 
-const LovePage = () => {
+const LovePage = (props: { name: string }) => {
+  const { name } = props;
   const [clickCount, setClickCount] = useState(0); // 记录点击 No 的次数
   const [yesSize, setYesSize] = useState(1);
   const [noOffset, setNoOffset] = useState(0);
@@ -87,7 +88,8 @@ const LovePage = () => {
             style={{ transform: `translateY(-${moveUp}px)` }}
           />
           <h1 id='question' style={{ transform: `translateY(-${moveUp}px)` }}>
-            可以成为我的恋人吗？
+            可以成为我的恋人吗？{"( >᎑<)♡︎"}
+            <span className='text-base'>{name || ""}</span>
           </h1>
           <div className='buttons'>
             <button
@@ -108,7 +110,9 @@ const LovePage = () => {
         </>
       ) : (
         <div className='yes-screen w-full h-full mx-auto my-auto flex flex-col items-center justify-center'>
-          <h1 className='yes-text'>{"!!!喜欢你!! ( >᎑<)♡︎ᐝ"}</h1>
+          <div className='flex relative items-center'>
+            <h1 className='yes-text'>{`!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${name}  ♡︎ᐝ(>᎑< )`}</h1>
+          </div>
           <img src='images/hug.png' alt='拥抱' className='yes-image' />
         </div>
       )}

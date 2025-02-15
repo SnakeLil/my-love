@@ -10,10 +10,17 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Page() {
+export default async function Page(props: {
+  params: {
+    lang: string;
+  };
+  searchParams: {
+    name: string;
+  };
+}) {
   return (
     <>
-      <LovePage />
+      <LovePage name={props.searchParams?.name} />
     </>
   );
 }
