@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
+import { Github } from "lucide-react";
 import "./index.css";
+import Link from "next/link";
 
 const LovePage = () => {
   const [clickCount, setClickCount] = useState(0); // 记录点击 No 的次数
@@ -70,6 +72,11 @@ const LovePage = () => {
 
   return (
     <div className='container'>
+      <Link target='_blank' href='https://github.com/SnakeLil/my-love'>
+        <div className='flex absolute top-1 right-1 justify-center items-center rounded-full bg-white p-1'>
+          <Github className='' />
+        </div>
+      </Link>
       {!showSuccess ? (
         <>
           <img
