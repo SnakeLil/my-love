@@ -11,16 +11,15 @@ export async function generateMetadata() {
 }
 
 export default async function Page(props: {
-  params: {
-    lang: string;
-  };
-  searchParams: {
+  searchParams: Promise<{
     name: string;
-  };
+  }>;
 }) {
+  const { searchParams } = props;
+  const { name } = await searchParams;
   return (
     <>
-      <LovePage name={props.searchParams?.name} />
+      <LovePage name={name} />
     </>
   );
 }

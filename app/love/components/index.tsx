@@ -111,7 +111,9 @@ const LovePage = (props: { name: string }) => {
       ) : (
         <div className='yes-screen w-full h-full mx-auto my-auto flex flex-col items-center justify-center'>
           <div className='flex relative items-center'>
-            <h1 className='yes-text'>{`!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${name}  ♡︎ᐝ(>᎑< )`}</h1>
+            <h1 className='yes-text'>{`!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${
+              name ? `${name}  ♡︎ᐝ(>᎑< )` : ""
+            }`}</h1>
           </div>
           <img src='images/hug.png' alt='拥抱' className='yes-image' />
         </div>
